@@ -1,0 +1,38 @@
+@startuml
+class padraodecorator.ExtraTest {
+}
+abstract class padraodecorator.Extra {
+# Pedido pedido
+# String label
+# double preco
++ {abstract}Double getPreco()
++ String getLabel()
+}
+class padraodecorator.CoberturaExtra {
++ Double getPreco()
+}
+interface padraodecorator.Pedido {
++ Double getPreco()
++ String getLabel()
+}
+class padraodecorator.CoberturaSemCusto {
++ Double getPreco()
+}
+class padraodecorator.CoberturaExtraDupla {
++ Double getPreco()
++ String getLabel()
+}
+class padraodecorator.Pizza {
+- String label
+- double preco
++ Double getPreco()
++ String getLabel()
+}
+
+
+padraodecorator.Pedido <|.. padraodecorator.Extra
+padraodecorator.Extra <|-- padraodecorator.CoberturaExtra
+padraodecorator.Extra <|-- padraodecorator.CoberturaSemCusto
+padraodecorator.Extra <|-- padraodecorator.CoberturaExtraDupla
+padraodecorator.Pedido <|.. padraodecorator.Pizza
+@enduml
